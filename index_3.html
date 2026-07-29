@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badrinadh Reddy Madakala — Full-Stack Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#181B20; --body:#4B505A; --paper:#F1F1EF; --white:#FFFFFF; --line:#DADAD6; --berry:#A61F42; --berry-soft:#F6E4E9; --forest:#28513F;
+  --font-display:'Fraunces', serif; --font-body:'Work Sans', sans-serif; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--paper); color:var(--body); font-family:var(--font-body); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  a{color:inherit;} ::selection{background:var(--berry); color:var(--white);}
+  .layout{ display:grid; grid-template-columns: 320px 1fr; min-height:100vh; }
+  @media (max-width:880px){ .layout{ grid-template-columns:1fr; } }
+  .sidebar{ background:var(--ink); color:var(--paper); padding:56px 40px; position:sticky; top:0; height:100vh; display:flex; flex-direction:column; justify-content:space-between; }
+  @media (max-width:880px){ .sidebar{ position:relative; height:auto; padding:48px 28px; } }
+  .sb-top .kicker{ font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--berry); font-weight:600; margin-bottom:18px; }
+  .sb-top h1{ font-family:var(--font-display); font-weight:600; font-size:34px; line-height:1.15; color:var(--white); margin-bottom:14px; }
+  .sb-top .role{ font-size:14.5px; color:#B7BAC0; margin-bottom:28px; }
+  .sb-status{ display:inline-flex; align-items:center; gap:8px; font-size:12.5px; color:#8FD0B0; margin-bottom:34px; }
+  .sb-status .dot{ width:7px; height:7px; border-radius:50%; background:#3FBE83; }
+  .sb-skills .label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#8A8E97; margin-bottom:10px; }
+  .sb-skill-list{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:30px; }
+  .sb-chip{ font-size:12px; padding:5px 11px; border:1px solid #34383F; border-radius:5px; color:#D8DADD; }
+  .sb-chip.active{ background:var(--berry); border-color:var(--berry); color:var(--white); }
+  .sb-bottom .contact-line{ display:block; font-size:13.5px; color:#D8DADD; text-decoration:none; margin-bottom:10px; }
+  .sb-bottom .contact-line:hover{ color:var(--white); }
+  .sb-bottom .loc{ font-size:12px; color:#71757C; margin-top:18px; }
+  .main{ padding: 64px 56px 100px; max-width:760px; }
+  @media (max-width:880px){ .main{ padding:48px 28px 80px; } }
+  .num-head{ display:flex; align-items:baseline; gap:16px; margin-bottom:22px; }
+  .num-head .no{ font-family:var(--font-display); font-size:15px; color:var(--berry); font-weight:600; }
+  .num-head h2{ font-family:var(--font-display); font-weight:600; font-size:clamp(24px,3vw,30px); color:var(--ink); }
+  .block{ margin-bottom:76px; }
+  .lede{ font-size:18px; color:var(--ink); max-width:640px; margin-bottom:16px; font-weight:500; }
+  .about-text p{ font-size:15.5px; margin-bottom:14px; max-width:640px; }
+  .about-text strong{ color:var(--ink); font-weight:600; }
+  .role-entry{ padding:26px 0; border-top:1px solid var(--line); }
+  .role-entry:last-child{ border-bottom:1px solid var(--line); }
+  .role-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; }
+  .role-title{ font-family:var(--font-display); font-weight:600; font-size:19px; color:var(--ink); }
+  .role-org{ color:var(--berry); font-weight:600; font-size:14px; }
+  .role-date{ font-size:12.5px; color:var(--body); white-space:nowrap; }
+  .role-bullets{ list-style:none; margin-top:12px; }
+  .role-bullets li{ font-size:14.5px; padding-left:16px; position:relative; margin-bottom:7px; }
+  .role-bullets li::before{ content:"·"; position:absolute; left:0; color:var(--berry); font-weight:700; font-size:18px; line-height:1; }
+  .proj{ padding:30px 0; border-top:1px solid var(--line); }
+  .proj:last-child{ border-bottom:1px solid var(--line); }
+  .proj-head{ display:flex; gap:28px; align-items:flex-start; flex-wrap:wrap; }
+  .proj-metric{ font-family:var(--font-display); font-weight:700; font-size:44px; color:var(--berry); line-height:1; min-width:110px; }
+  .proj-metric .cap{ display:block; font-family:var(--font-body); font-weight:500; font-size:11px; color:var(--body); text-transform:uppercase; letter-spacing:0.05em; margin-top:6px; }
+  .proj-body{ flex:1; min-width:240px; }
+  .proj-name{ font-family:var(--font-display); font-weight:600; font-size:19px; color:var(--ink); margin-bottom:8px; }
+  .proj-desc{ font-size:14.5px; margin-bottom:14px; }
+  .proj-tags{ display:flex; flex-wrap:wrap; gap:7px; }
+  .proj-tag{ font-size:11.5px; padding:4px 10px; border:1px solid var(--line); border-radius:100px; color:var(--body); background:var(--white); }
+  .skill-cats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:26px; }
+  .skill-cat-label{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--berry); font-weight:600; margin-bottom:10px; }
+  .skill-cat-chips{ display:flex; flex-wrap:wrap; gap:8px; }
+  .sc-chip{ font-size:13px; padding:6px 13px; border:1px solid var(--line); border-radius:100px; background:var(--white); color:var(--ink); }
+  .edu-row{ display:flex; justify-content:space-between; gap:20px; padding:18px 0; border-top:1px solid var(--line); flex-wrap:wrap; }
+  .edu-row:last-child{ border-bottom:1px solid var(--line); }
+  .edu-school{ font-family:var(--font-display); font-weight:600; font-size:16px; color:var(--ink); }
+  .edu-degree{ font-size:13.5px; color:var(--body); margin-top:3px; }
+  .edu-year{ font-size:12.5px; color:var(--body); white-space:nowrap; }
+  .footer-cta{ margin-top:20px; padding:34px 0 0; border-top:2px solid var(--ink); }
+  .footer-cta h2{ font-family:var(--font-display); font-weight:600; font-size:26px; color:var(--ink); margin-bottom:10px; }
+  .footer-links{ display:flex; gap:20px; flex-wrap:wrap; margin-top:16px; }
+  .footer-links a{ font-size:14px; text-decoration:none; color:var(--ink); border-bottom:1.5px solid var(--berry); padding-bottom:2px; font-weight:500; }
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+<div class="sb-top">
+<div class="kicker">Portfolio</div><h1>Badrinadh Reddy Madakala</h1><div class="role">Full-Stack Software Engineer</div>
+<div class="sb-status"><span class="dot"></span>Open to relocation — currently employed</div>
+<div class="sb-skills"><div class="label">Top Skills</div><div class="sb-skill-list"><span class="sb-chip active">Python</span><span class="sb-chip active">React.js</span><span class="sb-chip active">REST APIs</span></div>
+<div class="label">Also</div><div class="sb-skill-list"><span class="sb-chip">SQL</span><span class="sb-chip">TypeScript</span><span class="sb-chip">GPT-4o</span><span class="sb-chip">RAG</span></div></div>
+</div>
+<div class="sb-bottom"><a class="contact-line" href="mailto:badrireddym@gmail.com">badrireddym@gmail.com</a>
+<a class="contact-line" href="https://www.linkedin.com/in/badrinadhm/" target="_blank" rel="noopener">linkedin.com/in/badrinadhm</a>
+<a class="contact-line" href="tel:+13143068647">+1 314-306-8647</a><div class="loc">St. Louis, MO, United States</div></div>
+</aside>
+<main class="main">
+<section class="block" id="about"><div class="num-head"><span class="no">01</span><h2>About</h2></div>
+<p class="lede">Full-stack engineer building production features across banking, fintech, and insurance — with a growing focus on applied AI.</p>
+<div class="about-text"><p>I'm a full-stack software engineer with <strong>2+ years</strong> building production features across banking, fintech, and insurance platforms.</p>
+<p>At <strong>Western Alliance Bank</strong>, I work across the stack while using AI-assisted development tools and LLM-driven workflows.</p>
+<p>Outside client work, I build independent AI projects. MS in Computer and Information Systems, Saint Louis University.</p></div></section>
+<section class="block" id="experience"><div class="num-head"><span class="no">02</span><h2>Experience</h2></div>
+<div class="role-entry"><div class="role-head"><div><div class="role-title">Software Engineer</div><div class="role-org">Western Alliance Bank</div></div><div class="role-date">Jul 2025 — Present · Arizona, US</div></div>
+<ul class="role-bullets"><li>Build backend functionality and REST API integrations in Python, with SQL for data access, reporting, and validation</li><li>Develop React/TypeScript frontend components focused on API integration and responsive UI</li><li>Apply AI-assisted development tools and build LLM-driven workflows to accelerate delivery</li></ul></div>
+<div class="role-entry"><div class="role-head"><div><div class="role-title">Associate Software Engineer</div><div class="role-org">DXC Technology</div></div><div class="role-date">Jun 2021 — Nov 2022 · India</div></div>
+<ul class="role-bullets"><li>Built full-stack features for an enterprise insurance policy and claims system supporting 500+ stakeholders</li><li>Designed REST APIs for policy issuance, endorsements, and claims processing</li><li>Migrated ~30% of legacy logic to a microservices architecture</li></ul></div></section>
+<section class="block" id="projects"><div class="num-head"><span class="no">03</span><h2>Projects</h2></div>
+<div class="proj"><div class="proj-head"><div class="proj-metric">60%<span class="cap">less prep time</span></div><div class="proj-body"><div class="proj-name">RAGA — Resume ATS Guidance Assistant</div><div class="proj-desc">AI tool analyzing resumes against job descriptions with GPT-4o, producing ATS scores and rewrite suggestions.</div><div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">GPT-4o</span></div></div></div></div>
+<div class="proj"><div class="proj-head"><div class="proj-metric">80%<span class="cap">less search time</span></div><div class="proj-body"><div class="proj-name">AI PDF Assistant</div><div class="proj-desc">RAG pipeline extracting text from PDF/DOCX/TXT, embedding with Gemini into FAISS, answering with Gemini 2.5 Flash.</div><div class="proj-tags"><span class="proj-tag">Gemini</span><span class="proj-tag">FAISS</span><span class="proj-tag">RAG</span></div></div></div></div>
+<div class="proj"><div class="proj-head"><div class="proj-metric">72%<span class="cap">faster analysis</span></div><div class="proj-body"><div class="proj-name">Data Insights AI — NLP-to-SQL Platform</div><div class="proj-desc">Lets non-technical users query datasets in plain English, with automatic Plotly charting.</div><div class="proj-tags"><span class="proj-tag">OpenAI API</span><span class="proj-tag">SQL</span><span class="proj-tag">Plotly</span></div></div></div></div></section>
+<section class="block" id="skills"><div class="num-head"><span class="no">04</span><h2>Skills</h2></div>
+<div class="skill-cats">
+<div><div class="skill-cat-label">Languages &amp; Frontend</div><div class="skill-cat-chips"><span class="sc-chip">Python</span><span class="sc-chip">JavaScript</span><span class="sc-chip">TypeScript</span><span class="sc-chip">React.js</span></div></div>
+<div><div class="skill-cat-label">Backend &amp; Data</div><div class="skill-cat-chips"><span class="sc-chip">Flask</span><span class="sc-chip">FastAPI</span><span class="sc-chip">REST APIs</span><span class="sc-chip">SQL</span></div></div>
+<div><div class="skill-cat-label">AI &amp; LLM Tooling</div><div class="skill-cat-chips"><span class="sc-chip">GPT-4o</span><span class="sc-chip">Gemini</span><span class="sc-chip">RAG</span><span class="sc-chip">FAISS</span></div></div>
+</div></section>
+<section class="block" id="education"><div class="num-head"><span class="no">05</span><h2>Education</h2></div>
+<div class="edu-row"><div><div class="edu-school">Saint Louis University</div><div class="edu-degree">Master's in Computer and Information Systems</div></div><div class="edu-year">2023 – 2025 · Missouri, USA</div></div>
+<div class="edu-row"><div><div class="edu-school">Kalasalingam Academy of Research and Education</div><div class="edu-degree">Bachelor's in Computer Science Engineering</div></div><div class="edu-year">2018 – 2022 · Madurai, India</div></div></section>
+<section class="footer-cta" id="contact"><h2>Let's talk.</h2><p style="font-size:14.5px;">Open to full-stack and AI engineering roles — based in St. Louis, open to relocation nationwide.</p>
+<div class="footer-links"><a href="mailto:badrireddym@gmail.com">Email</a><a href="https://www.linkedin.com/in/badrinadhm/" target="_blank" rel="noopener">LinkedIn</a><a href="tel:+13143068647">Call</a></div></section>
+</main></div>
+</body></html>
